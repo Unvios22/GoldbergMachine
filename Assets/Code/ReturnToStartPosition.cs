@@ -24,12 +24,14 @@ namespace Code {
 		}
 
 		private void OnDisable() {
-			if (GameObject.FindWithTag("Trigger").GetComponent<ReturnToStartPositionTrigger>() != null) {
+			if (GameObject.FindWithTag("Trigger") != null) {
 				GameObject.FindWithTag("Trigger").GetComponent<ReturnToStartPositionTrigger>().TriggerEvent -= OnTrigger;
 			}
 		}
 
-		private void OnTrigger() {
+		private void OnTrigger(){
+			_rigidbody.drag = 0f;
+			_rigidbody.angularDrag = 0.05f;
 			StartCoroutine(Return(_waitTime,_returnTime));
 		}
 
@@ -50,9 +52,11 @@ namespace Code {
 				elapsedTime += Time.deltaTime;
 				yield return new WaitForEndOfFrame();
 			}
-			yield return new WaitForSeconds(1f);
+			yield return new WaitForSeconds(0.5f);
 			_transform.gameObject.layer = LayerMask.NameToLayer("Default");
 			_rigidbody.isKinematic = false;
+			_rigidbody.drag = 100000;
+			_rigidbody.angularDrag = 100000;
 		}
 	}
 }
