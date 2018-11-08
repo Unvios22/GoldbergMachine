@@ -7,6 +7,7 @@ namespace Code {
 		public event Trigger TriggerEvent;
 
 		private void OnTriggerEnter(Collider other) {
+			if (!other.CompareTag("Player")) { return; }
 			if (TriggerEvent != null) TriggerEvent();
 		}
 	}

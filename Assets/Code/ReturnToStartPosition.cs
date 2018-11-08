@@ -24,9 +24,8 @@ namespace Code {
 		}
 
 		private void OnDisable() {
-			ReturnToStartPositionTrigger trigger = GameObject.FindWithTag("Trigger").GetComponent<ReturnToStartPositionTrigger>();
-			if (trigger != null) {
-				trigger.TriggerEvent -= OnTrigger;
+			if (GameObject.FindWithTag("Trigger").GetComponent<ReturnToStartPositionTrigger>() != null) {
+				GameObject.FindWithTag("Trigger").GetComponent<ReturnToStartPositionTrigger>().TriggerEvent -= OnTrigger;
 			}
 		}
 
@@ -38,6 +37,7 @@ namespace Code {
 			yield return new WaitForSeconds(delay);
 			_rigidbody.velocity = Vector3.zero;
 			_rigidbody.angularVelocity = Vector3.zero; 
+			_rigidbody.isKinematic = true;
 			
 			float elapsedTime = 0;
 			Vector3 lerpStartPosition = _transform.position;
@@ -50,7 +50,7 @@ namespace Code {
 				elapsedTime += Time.deltaTime;
 				yield return new WaitForEndOfFrame();
 			}
-			
+			_rigidbody.isKinematic = false;
 		}
 	}
 }

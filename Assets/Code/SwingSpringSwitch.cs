@@ -12,11 +12,15 @@ namespace Code {
 		}
 
 		private void OnTriggerEnter(Collider other) {
-			_swingJoint.useSpring = false;
+			if (other.CompareTag("Player")) {
+				_swingJoint.useSpring = false;
+			}	
 		}
 
 		private void OnTriggerExit(Collider other) {
-			StartCoroutine(ReturnToStartingPosition());
+			if (other.CompareTag("Player")) {
+				StartCoroutine(ReturnToStartingPosition());
+			}
 		}
 
 		IEnumerator ReturnToStartingPosition() {
