@@ -36,20 +36,22 @@ namespace Code {
 		private IEnumerator Return(float delay, float lerpTime) {
 			yield return new WaitForSeconds(delay);
 			_rigidbody.velocity = Vector3.zero;
-			_rigidbody.angularVelocity = Vector3.zero; 
+			_rigidbody.angularVelocity = Vector3.zero;
 			_rigidbody.isKinematic = true;
+			_transform.gameObject.layer = LayerMask.NameToLayer("PhysicsNoCollision");
 			
 			float elapsedTime = 0;
 			Vector3 lerpStartPosition = _transform.position;
 			Quaternion lerpStartRotation = _transform.rotation;
- 
-			while (elapsedTime < lerpTime)
-			{
+
+			while (elapsedTime < lerpTime) {
 				_transform.position = Vector3.Slerp(lerpStartPosition, _startingPosition, (elapsedTime / _returnTime));
 				_transform.rotation = Quaternion.Slerp(lerpStartRotation, _startingRotation, elapsedTime / _returnTime);
 				elapsedTime += Time.deltaTime;
 				yield return new WaitForEndOfFrame();
 			}
+			yield return new WaitForSeconds(1f);
+			_transform.gameObject.layer = LayerMask.NameToLayer("Default");
 			_rigidbody.isKinematic = false;
 		}
 	}
