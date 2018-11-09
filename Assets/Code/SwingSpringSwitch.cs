@@ -8,7 +8,7 @@ namespace Code {
 		[SerializeField] private float _waitTime = 1f;
 
 		private void Start() {
-			_swingJoint = this.GetComponentInChildren<HingeJoint>();
+			_swingJoint = GetComponentInChildren<HingeJoint>();
 		}
 
 		private void OnTriggerEnter(Collider other) {
