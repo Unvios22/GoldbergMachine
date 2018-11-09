@@ -963,7 +963,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 515980927}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.08840704, y: -29.4, z: 17.2}
+  m_LocalPosition: {x: -0.08840704, y: -29.4, z: 17.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1949636914}
@@ -1574,7 +1574,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.76, y: -27.05, z: 31.77}
+  m_ConnectedAnchor: {x: 0.76, y: -27.05, z: 31.6}
   m_UseSpring: 0
   m_Spring:
     spring: 300
@@ -2456,7 +2456,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4042645579874544, guid: 2ba47497c4a1e134faa725093d651ff6, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 31.77
+      value: 31.6
       objectReference: {fileID: 0}
     - target: {fileID: 4042645579874544, guid: 2ba47497c4a1e134faa725093d651ff6, type: 2}
       propertyPath: m_LocalRotation.x
