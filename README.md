@@ -1,6 +1,7 @@
 # GoldbergMachine
 A Goldberg Machine-type project done in Unity.\
-Features different physics mechanics: joints, colliders, triggers, changing gravity, adding forces, etc.
+Features different physics mechanics: joints, colliders, triggers, changing gravity, adding forces, etc.\
+Last updated 09.11.18.
 
 Video
 ---
